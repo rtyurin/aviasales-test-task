@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css } from 'styled-components'
 
 const reset = css`
     html {
@@ -8,9 +8,6 @@ const reset = css`
     }
 
     * {
-        user-select: none;
-        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-        -webkit-tap-highlight-color: transparent;
         box-sizing: inherit;
     }
 
@@ -49,15 +46,6 @@ const reset = css`
     param,
     template {
         display: none;
-    }
-
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    b {
-        font-weight: 400;
     }
 
     em,
@@ -122,6 +110,6 @@ const reset = css`
     body {
         box-sizing: border-box;
     }
-`;
+`
 
-export default reset;
+export default reset

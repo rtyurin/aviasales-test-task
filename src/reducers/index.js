@@ -1,7 +1,8 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
+import ticketsReducer from './ticketsReducer'
 
 const rootReducer = combineReducers({
-    state: () => ({})
-});
+    tickets: ticketsReducer
+})
 
-export default rootReducer;
+export default rootReducer
