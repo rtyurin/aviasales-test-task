@@ -14,7 +14,7 @@
         "es6": true
     },
     "rules": {
-        "indent": ["error", 4],
+        "indent": ["error", 4, {"SwitchCase":  1}],
         "space-before-function-paren": "off",
         "react/prefer-stateless-function": "warn",
         "react/jsx-one-expression-per-line": "off",
@@ -22,6 +22,13 @@
             "error",
             { "devDependencies": true }
         ],
+        "import/extensions": [
+            "never", {
+                "js": "always"
+            }
+        ],
+        "no-case-declarations": "off",
+        "react/forbid-prop-types": "off",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "linebreak-style": "off",
         "global-require": "off",
