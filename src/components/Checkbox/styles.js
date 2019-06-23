@@ -14,7 +14,7 @@ const RowContainer = styled.div`
     position: relative;
     cursor: pointer;
     margin: 0 -15px;
-    padding: 7px 15px;
+    padding: 5px 15px;
 
     ${Wrapper}:hover & {
         background-color: #f1fcff;
@@ -23,8 +23,10 @@ const RowContainer = styled.div`
 
 const CheckmarkIcon = styled.img`
     position: absolute;
-    top: 4px;
-    left: 3px;
+    top: 5px;
+    left: 4px;
+    opacity: ${props => (props.enabled ? 1 : 0)};
+    transition: opacity 0.1s;
 `
 
 const Label = styled.label`
@@ -52,10 +54,11 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
 const StyledCheckbox = styled.div`
     position: relative;
     display: inline-block;
-    width: 16px;
-    height: 16px;
-    background: ${props => (props.checked ? '#f2fcff' : '#fff')};
+    width: 20px;
+    height: 20px;
+    background-color: ${props => (props.checked ? '#f2fcff' : '#fff')};
     border: solid 1px ${props => (props.checked ? '#2196f3' : '#d2d5d6')};
+    transition: border, background-color 0.1s;
     border-radius: 3px;
 `
 

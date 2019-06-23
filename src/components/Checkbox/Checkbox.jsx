@@ -39,7 +39,11 @@ const Checkbox = ({
                         onChange={() => onClick(id)}
                     />
                     <StyledCheckbox checked={checked}>
-                        {checked && <CheckmarkIcon src={check} alt="checked" />}
+                        <CheckmarkIcon
+                            enabled={checked}
+                            src={check}
+                            alt="checked"
+                        />
                     </StyledCheckbox>
                     <Label onClick={e => e.preventDefault()} htmlFor={id}>
                         {label}

@@ -18,7 +18,7 @@ const FilterTitle = styled.h2`
     font-weight: 600;
     color: #4a4a4a;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 `
 
 const Filters = () => {

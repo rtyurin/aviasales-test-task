@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const Radio = styled.label`
     display: block;
     cursor: pointer;
-    padding: 9px 21px;
+    padding: 11px 21px;
     font-size: 12px;
     font-weight: 600;
     color: ${props => (props.checked ? '#fff' : '#2196f3')};

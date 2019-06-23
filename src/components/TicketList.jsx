@@ -6,11 +6,12 @@ import Ticket from './Ticket/Ticket.jsx'
 const TicketsContainer = styled.div`
     display: flex;
     align-items: center;
-    justify-content: ${props => (props.empty ? 'flex-start' : 'center')};
+    justify-content: flex-start;
     flex-direction: column;
 `
 
 const EmptyWrapper = styled(TicketsContainer)`
+    justify-content: center;
     min-width: 566px;
     border-radius: 5px;
     box-shadow: 0 1px 4px 0 rgba(91, 137, 164, 0.25);
@@ -20,7 +21,7 @@ const EmptyWrapper = styled(TicketsContainer)`
 const TicketList = ({ list }) => {
     if (!list.length) {
         return (
-            <TicketsContainer empty>
+            <TicketsContainer>
                 <EmptyWrapper>Сделайте фильтры менее строгими</EmptyWrapper>
             </TicketsContainer>
         )
