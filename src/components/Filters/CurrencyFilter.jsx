@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
+import pt from 'prop-types'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 
+import changeCurrencyFilterAction from '../../actions/changeCurrencyFilterAction'
 import RadioGroup from '../RadioGroup.jsx'
 
 const Wrapper = styled.div`
     margin-bottom: 30px;
 `
 
-const CurrencyFilter = () => {
-    // TODO: use redux
-    // this is just a presentation how this switcher could work, without changing currency logic
-    const [activeCurrency, setCurrency] = useState('RUB')
+const CurrencyFilter = ({ currencyFilter, changeCurrencyFilter }) => {
     return (
         <Wrapper>
             <RadioGroup
-                onChange={currency => setCurrency(currency)}
+                onChange={changeCurrencyFilter}
                 name="currencies"
-                activeValue={activeCurrency}
+                activeValue={currencyFilter}
                 options={[
                     {
                         id: 'RUB',
@@ -36,4 +36,21 @@ const CurrencyFilter = () => {
     )
 }
 
-export default CurrencyFilter
+CurrencyFilter.propTypes = {
+    currencyFilter: pt.string.isRequired,
+    changeCurrencyFilter: pt.func.isRequired
+}
+
+const mapStateToProps = ({ currencyFilter }) => ({
+    currencyFilter
+})
+
+const mapDispatchToProps = dispatch => ({
+    changeCurrencyFilter: activeCurrency =>
+        dispatch(changeCurrencyFilterAction(activeCurrency))
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(CurrencyFilter)

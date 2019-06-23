@@ -56,4 +56,4 @@ FlightLayovers.propTypes = {
     stopsCount: pt.number.isRequired
 }
 
-export default FlightLayovers
+export default React.memo(FlightLayovers)

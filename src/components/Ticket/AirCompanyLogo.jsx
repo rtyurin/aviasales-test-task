@@ -22,4 +22,4 @@ AirCompanyLogo.propTypes = {
     carrier: pt.string.isRequired
 }
 
-export default AirCompanyLogo
+export default React.memo(AirCompanyLogo)

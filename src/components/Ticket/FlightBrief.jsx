@@ -83,4 +83,4 @@ FlightBrief.propTypes = {
     stops: pt.number.isRequired
 }
 
-export default FlightBrief
+export default React.memo(FlightBrief)

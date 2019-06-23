@@ -70,4 +70,4 @@ RadioGroup.defaultProps = {
     onChange: () => {}
 }
 
-export default RadioGroup
+export default React.memo(RadioGroup)

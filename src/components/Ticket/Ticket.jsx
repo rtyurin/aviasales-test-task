@@ -1,7 +1,9 @@
 import React from 'react'
 import pt from 'prop-types'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 
+import priceByCurrencySelector from '../../selectors/priceByCurrencySelector'
 import Button from './Button.jsx'
 import AirCompanyLogo from './AirCompanyLogo.jsx'
 import FlightBrief from './FlightBrief.jsx'
@@ -29,13 +31,13 @@ const RightBlock = styled.div`
 `
 
 const Ticket = props => {
-    const { carrier, price, ...rest } = props
+    const { carrier, price, currency, ...rest } = props
 
     return (
         <TicketWrapper>
             <LeftBlock>
                 <AirCompanyLogo carrier={carrier} />
-                <Button price={price} />
+                <Button currency={currency} price={price} />
             </LeftBlock>
             <RightBlock>
                 <FlightBrief {...rest} />
@@ -46,6 +48,7 @@ const Ticket = props => {
 
 Ticket.propTypes = {
     carrier: pt.string.isRequired,
+    currency: pt.string.isRequired,
     price: pt.number.isRequired,
     arrivalDate: pt.string.isRequired,
     arrivalTime: pt.string.isRequired,
@@ -58,4 +61,9 @@ Ticket.propTypes = {
     stops: pt.number.isRequired
 }
 
-export default Ticket
+const mapStateToProps = (state, ownProps) => ({
+    price: priceByCurrencySelector({ ...state, price: ownProps.price }),
+    currency: state.currencyFilter
+})
+
+export default connect(mapStateToProps)(Ticket)

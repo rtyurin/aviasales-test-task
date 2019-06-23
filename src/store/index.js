@@ -11,7 +11,9 @@ const initialState = {
         1: true,
         2: true,
         3: true
-    }
+    },
+    currencyFilter: 'RUB',
+    currencyRates: {}
 }
 
 const middleware = applyMiddleware(thunk, logger)
