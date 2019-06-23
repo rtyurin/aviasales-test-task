@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 
 import TicketList from './TicketList.jsx'
+import Filters from './Filters/Filters.jsx'
 import getTicketList from '../actions/getTicketListAction'
 import useDidMount from '../hooks/useDidMount'
 import Logo from './Logo.jsx'
@@ -16,6 +17,11 @@ const Container = styled.div`
     font-family: 'Open Sans', sans-serif;
 `
 
+const ContentWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
 const App = ({ getTickets, ticketsList }) => {
     useDidMount(() => {
         getTickets()
@@ -24,7 +30,10 @@ const App = ({ getTickets, ticketsList }) => {
     return (
         <Container>
             <Logo />
-            <TicketList list={ticketsList} />
+            <ContentWrapper>
+                <Filters />
+                <TicketList list={ticketsList} />
+            </ContentWrapper>
         </Container>
     )
 }

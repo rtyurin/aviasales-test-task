@@ -16,11 +16,6 @@ const reset = css`
         box-sizing: inherit;
     }
 
-    input[type],
-    [contenteditable] {
-        user-select: text;
-    }
-
     body,
     h1,
     h2,
