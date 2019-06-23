@@ -1,4 +1,3 @@
-const GET_LIST = 'GET_LIST'
-
 // eslint-disable-next-line
-export { GET_LIST }
+export const GET_LIST = 'GET_LIST',
+    CHANGE_STOPS_FILTER = 'CHANGE_STOPS_FILTER'

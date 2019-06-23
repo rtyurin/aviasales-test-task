@@ -31,6 +31,7 @@ const Label = styled.label`
     margin-left: 11px;
     font-size: 13px;
     vertical-align: top;
+    user-select: none;
     cursor: pointer;
 `
 

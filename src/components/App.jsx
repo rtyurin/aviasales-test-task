@@ -8,6 +8,7 @@ import Filters from './Filters/Filters.jsx'
 import getTicketList from '../actions/getTicketListAction'
 import useDidMount from '../hooks/useDidMount'
 import Logo from './Logo.jsx'
+import ticketListSelector from '../selectors/ticketListSelector'
 
 import response from '../constants/response.json'
 
@@ -50,7 +51,7 @@ App.defaultProps = {
 
 export default connect(
     state => ({
-        ticketsList: state.tickets.list
+        ticketsList: ticketListSelector(state)
     }),
     dispatch => ({
         getTickets: () => dispatch(getTicketList(response.tickets))

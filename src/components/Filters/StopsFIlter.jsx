@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, { Fragment } from 'react'
+import pt from 'prop-types'
+import { connect } from 'react-redux'
 
+import changeStopsFilterAction from '../../actions/changeStopsFilterAction'
 import isAllTrue from '../../utils/isAllTrue'
-import makeAllValuesFalse from '../../utils/makeAllValuesFalse'
+import {
+    makeAllValuesFalse,
+    makeAllValuesTrue
+} from '../../utils/makeAllValues'
 import Checkbox from '../Checkbox/Checkbox.jsx'
-
-const Wrapper = styled.div``
 
 const checkboxes = [
     {
@@ -34,29 +37,19 @@ const checkboxes = [
     }
 ]
 
-const StopsFilter = () => {
-    // TODO: use redux on #task2
-    // this is only a presentation how it could work, without any filtering logic
-    const initialState = {
-        0: true,
-        1: true,
-        2: true,
-        3: true
-    }
-    const [filters, changeFilter] = useState(initialState)
-
+const StopsFilter = ({ stopsFilter, changeStopsFilter }) => {
     return (
-        <Wrapper>
+        <Fragment>
             <Checkbox
-                checked={isAllTrue(filters)}
+                checked={isAllTrue(stopsFilter)}
                 label="Все"
                 name="all"
                 id="all"
                 onClick={() =>
-                    changeFilter(
-                        isAllTrue(filters)
-                            ? makeAllValuesFalse(initialState)
-                            : initialState
+                    changeStopsFilter(
+                        isAllTrue(stopsFilter)
+                            ? makeAllValuesFalse(stopsFilter)
+                            : makeAllValuesTrue(stopsFilter)
                     )
                 }
             />
@@ -64,26 +57,42 @@ const StopsFilter = () => {
                 <Checkbox
                     key={checkbox.id}
                     id={checkbox.id}
-                    checked={filters[checkbox.id]}
+                    checked={stopsFilter[checkbox.id]}
                     label={checkbox.label}
                     name={checkbox.name}
                     onClick={() =>
-                        changeFilter({
-                            ...filters,
-                            [checkbox.id]: !filters[checkbox.id]
+                        changeStopsFilter({
+                            ...stopsFilter,
+                            [checkbox.id]: !stopsFilter[checkbox.id]
                         })
                     }
                     extraButton={checkbox.extraButton}
                     onExtraButtonClick={() =>
-                        changeFilter({
-                            ...makeAllValuesFalse(filters),
+                        changeStopsFilter({
+                            ...makeAllValuesFalse(stopsFilter),
                             [checkbox.id]: true
                         })
                     }
                 />
             ))}
-        </Wrapper>
+        </Fragment>
     )
 }
 
-export default StopsFilter
+StopsFilter.propTypes = {
+    stopsFilter: pt.object.isRequired,
+    changeStopsFilter: pt.func.isRequired
+}
+
+const mapStateToProps = ({ stopsFilter }) => ({
+    stopsFilter
+})
+const mapDispatchToProps = dispatch => ({
+    changeStopsFilter: activeStops =>
+        dispatch(changeStopsFilterAction(activeStops))
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(StopsFilter)

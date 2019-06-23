@@ -1,18 +1,23 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
-import logger from 'redux-logger';
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
+import logger from 'redux-logger'
 
-import rootReducer from '../reducers';
+import rootReducer from '../reducers'
 
-const middleware = applyMiddleware(thunk, logger);
+const initialState = {
+    tickets: {},
+    stopsFilter: {
+        0: true,
+        1: true,
+        2: true,
+        3: true
+    }
+}
 
-const reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const middleware = applyMiddleware(thunk, logger)
 
-const store = createStore(
-    rootReducer,
-    reduxDevTools(
-        middleware
-    )
-);
+const reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-export default store;
+const store = createStore(rootReducer, initialState, reduxDevTools(middleware))
+
+export default store
