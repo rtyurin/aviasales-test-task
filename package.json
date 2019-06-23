@@ -15,6 +15,7 @@
     "author": "rtyurin",
     "license": "MIT",
     "repository": {},
+    "browserslist": "last 2 versions",
     "devDependencies": {
         "@babel/cli": "^7.4.3",
         "@babel/core": "^7.4.3",
