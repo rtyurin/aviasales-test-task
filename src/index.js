@@ -7,6 +7,8 @@ import store from './store'
 import App from './components/App.jsx'
 import reset from './constants/css/reset'
 
+import 'promise-polyfill/src/polyfill';
+
 const GlobalStyle = createGlobalStyle`${reset}`
 
 ReactDOM.render(

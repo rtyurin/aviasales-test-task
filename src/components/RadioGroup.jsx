@@ -2,8 +2,15 @@ import React from 'react'
 import pt from 'prop-types'
 import styled from 'styled-components'
 
+const HiddenInput = styled.input`
+    position: absolute;
+    height: 0;
+    width: 0;
+`
+
 const Radio = styled.label`
     display: block;
+    width: 100%;
     cursor: pointer;
     padding: 11px 21px;
     font-size: 12px;
@@ -41,7 +48,7 @@ const RadioGroup = ({ name, options, onChange, activeValue }) => {
                         key={option.id}
                         checked={option.value === activeValue}
                     >
-                        <input
+                        <HiddenInput
                             type="radio"
                             id={option.id}
                             name={name}

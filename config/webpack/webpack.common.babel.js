@@ -5,7 +5,7 @@ import paths from './paths'
 import rules from './rules'
 
 module.exports = {
-    entry: paths.entryPath,
+    entry: ['whatwg-fetch', paths.entryPath],
     module: {
         rules
     },

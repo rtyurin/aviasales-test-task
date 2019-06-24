@@ -16,7 +16,6 @@ import response from '../constants/response.json'
 const Container = styled.div`
     width: 100%;
     height: 100vh;
-    font-family: 'Open Sans', sans-serif;
 `
 
 const ContentWrapper = styled.div`

@@ -20,7 +20,7 @@ const LeftBlock = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 200px;
+    min-width: 200px;
     padding: 25px 20px 25px 20px;
     border-right: 1px solid #eceff1;
 `

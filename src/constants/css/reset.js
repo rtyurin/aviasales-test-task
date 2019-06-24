@@ -62,7 +62,6 @@ const reset = css`
 
     input,
     fieldset {
-        appearance: none;
         border: 0;
         padding: 0;
         margin: 0;
@@ -104,6 +103,11 @@ const reset = css`
 
     body {
         box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
+    }
+    
+    button {
+        font-family: 'Open Sans', sans-serif;
     }
 `
 
