@@ -12,8 +12,8 @@ const AirCompanyLogo = ({ carrier }) => {
     return (
         <Logo
             alt={`${carrier} company logo`}
-            src={`http://pics.avs.io/120/35/${carrier}.png`}
-            srcSet={`http://pics.avs.io/120/35/${carrier}@2x.png 2x`}
+            src={`https://pics.avs.io/120/35/${carrier}.png`}
+            srcSet={`https://pics.avs.io/120/35/${carrier}@2x.png 2x`}
         />
     )
 }

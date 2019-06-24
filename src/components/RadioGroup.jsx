@@ -6,6 +6,7 @@ const HiddenInput = styled.input`
     position: absolute;
     height: 0;
     width: 0;
+    visibility: hidden;
 `
 
 const Radio = styled.label`
