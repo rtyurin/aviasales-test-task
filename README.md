@@ -9,7 +9,7 @@ Made with
 * Reselect
 * Webpack
 
-In order to run this app you will need install dependencies with   
+In order to run this app you will need to install dependencies with   
 `yarn`
 
 And then run this:  
